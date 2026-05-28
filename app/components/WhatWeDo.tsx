@@ -70,9 +70,9 @@ export default function WhatWeDo() {
   
 
   return (
-    <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-14 sm:gap-16 md:gap-20">
         
         {/* SECTION 1: WHAT WE DO */}
         <div className="flex flex-col gap-12">
@@ -96,7 +96,7 @@ export default function WhatWeDo() {
             {activities.map((act, index) => (
               <ScrollStackItem 
                 key={index} 
-                itemClassName="bg-zinc-950 p-8 sm:p-10 border border-white/[0.04] rounded-sm group hover:border-white/10"
+                itemClassName="bg-zinc-950 p-5 sm:p-8 md:p-10 border border-white/[0.04] rounded-sm group hover:border-white/10"
               >
                 {/* Tech Bracket Corners */}
                 <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t border-l border-white/20 transition-all duration-300 group-hover:border-emerald-400 group-hover:w-4.5 group-hover:h-4.5"></span>
@@ -115,10 +115,10 @@ export default function WhatWeDo() {
                   </div>
 
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white group-hover:text-white/95 transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white group-hover:text-white/95 transition-colors">
                       {act.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-white/50 leading-relaxed font-normal max-w-2xl">
+                    <p className="text-[11px] sm:text-xs md:text-sm text-white/50 leading-relaxed font-normal max-w-2xl">
                       {act.desc}
                     </p>
                   </div>
@@ -142,14 +142,14 @@ export default function WhatWeDo() {
         <div id="domains" className="flex flex-col gap-12 pt-12 border-t border-white/[0.03]">
           <SectionHeading label="// 04 / Technical Domains" heading="Ecosystem Domains" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 items-stretch">
             {/* Domain Tabs List */}
             <div className="lg:col-span-1 flex flex-col gap-2">
               {domains.map((dom, index) => (
                 <button
                   key={index}
                   onClick={() => setActiveDomain(index)}
-                  className={`group relative w-full text-left p-5 transition-all duration-300 font-bold uppercase tracking-widest text-xs flex justify-between items-center cursor-pointer border ${
+                  className={`group relative w-full text-left p-4 sm:p-5 transition-all duration-300 font-bold uppercase tracking-widest text-[11px] sm:text-xs flex justify-between items-center cursor-pointer border ${
                     activeDomain === index 
                       ? "bg-emerald-500 text-black border-emerald-500" 
                       : "bg-white/[0.01] hover:bg-white/[0.02] text-white/60 hover:text-white border-white/[0.03] hover:border-emerald-500/30"
@@ -168,7 +168,7 @@ export default function WhatWeDo() {
             </div>
 
             {/* Selected Domain Terminal Viewer */}
-            <div className="lg:col-span-2 relative p-8 bg-white/[0.01] border border-white/[0.03] flex flex-col justify-between gap-8 group">
+            <div className="lg:col-span-2 relative p-5 sm:p-8 bg-white/[0.01] border border-white/[0.03] flex flex-col justify-between gap-6 sm:gap-8 group">
               {/* Tech Bracket Accent Corners */}
               <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t border-l border-white/20 transition-all duration-300 group-hover:border-emerald-400 group-hover:w-4.5 group-hover:h-4.5"></span>
               <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t border-r border-white/20 transition-all duration-300 group-hover:border-emerald-400 group-hover:w-4.5 group-hover:h-4.5"></span>
@@ -186,10 +186,10 @@ export default function WhatWeDo() {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-white">
+                  <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
                     {domains[activeDomain].name}
                   </h3>
-                  <p className="text-xs text-white/50 leading-relaxed font-normal max-w-xl">
+                  <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal max-w-xl">
                     {domains[activeDomain].desc}
                   </p>
                 </div>

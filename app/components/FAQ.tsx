@@ -34,13 +34,13 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="page-section page-section--fit relative bg-[#000000] py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
-        <div className="flex flex-col gap-12 pt-12 border-t border-white/[0.03]">
+    <section id="faq" className="page-section page-section--fit relative bg-[#000000] py-16 sm:py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-8 sm:gap-12">
+        <div className="flex flex-col gap-8 sm:gap-12 pt-10 sm:pt-12 border-t border-white/[0.03]">
           <SectionHeading label="// 09 / General Queries Resolved" heading="FAQ Section" />
 
           {/* FAQ Accordion Module */}
-          <div className="flex flex-col gap-4 w-full max-w-none">
+          <div className="flex flex-col gap-3 sm:gap-4 w-full max-w-none">
             {faqs.map((faq, index) => (
               <div 
                 key={index}
@@ -54,7 +54,7 @@ export default function FAQ() {
 
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 font-bold uppercase tracking-widest text-[11px] sm:text-xs text-white flex justify-between items-center cursor-pointer select-none"
+                  className="w-full text-left p-4 sm:p-6 font-bold uppercase tracking-widest text-[10px] sm:text-xs text-white flex justify-between items-center cursor-pointer select-none"
                 >
                   <span className="max-w-[85%]">{faq.q}</span>
                   <span className="text-xs text-white/40 group-hover:text-white transition-colors duration-200">
@@ -70,7 +70,7 @@ export default function FAQ() {
                       : "max-h-0"
                   }`}
                 >
-                  <p className="p-6 text-xs text-white/50 leading-relaxed font-normal">
+                  <p className="p-4 sm:p-6 text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal">
                     {faq.a}
                   </p>
                 </div>

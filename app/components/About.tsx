@@ -65,7 +65,7 @@ export default function About() {
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full py-20" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full py-10 sm:py-16 md:py-20" ref={sectionRef}>
         <div className="flex flex-col gap-12">
           
           {/* Header */}
@@ -91,7 +91,7 @@ export default function About() {
                   }, 600);
               }
             }}
-            className="group relative p-8 bg-white/[0.01] border border-white/[0.03] transition-all duration-300 hover:bg-white/[0.02] mx-auto w-full md:w-full lg:w-11/12 xl:w-4/5 max-w-6xl h-[480px] overflow-visible flex items-center"
+            className="group relative p-4 sm:p-8 bg-white/[0.01] border border-white/[0.03] transition-all duration-300 hover:bg-white/[0.02] mx-auto w-full md:w-full lg:w-11/12 xl:w-4/5 max-w-6xl min-h-[360px] sm:h-[480px] overflow-visible flex items-center"
             style={{ transformOrigin: "center center" }}
           >
             {/* Center green dot that expands horizontally into a line then fades */}
@@ -107,11 +107,11 @@ export default function About() {
             <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/30 transition-all duration-300 group-hover:w-4 group-hover:h-4 group-hover:border-emerald-400"></span>
             <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/30 transition-all duration-300 group-hover:w-4 group-hover:h-4 group-hover:border-emerald-400"></span>
 
-            <div className="h-full flex flex-col justify-center gap-6 text-sm text-white/60 leading-relaxed font-normal text-left">
+            <div className="h-full flex flex-col justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-white/60 leading-relaxed font-normal text-left">
               {boxOpenComplete && (
                 <>
                   <motion.p
-                    className="whitespace-pre-wrap text-sm text-white/60 leading-relaxed"
+                    className="whitespace-pre-wrap text-[12px] sm:text-sm text-white/60 leading-relaxed"
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
