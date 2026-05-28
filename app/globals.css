@@ -257,3 +257,152 @@ body {
     padding: 80px 0;
   }
 }
+
+/* Section heading fixed height — prevents layout shift from typewriter */
+.section-heading-container {
+  min-height: 72px;
+}
+
+@media (max-width: 640px) {
+  .section-heading-container {
+    min-height: 56px;
+  }
+}
+
+/* Cyber Glitch Effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch::before {
+  left: 3px;
+  text-shadow: -2px 0 #00fff9;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -3px;
+  text-shadow: -2px 0 #ff00c1, 2px 2px #00ff66;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: inset(20% 0 80% 0);
+  }
+  10% {
+    clip-path: inset(60% 0 10% 0);
+  }
+  20% {
+    clip-path: inset(40% 0 45% 0);
+  }
+  30% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  40% {
+    clip-path: inset(10% 0 70% 0);
+  }
+  50% {
+    clip-path: inset(90% 0 2% 0);
+  }
+  60% {
+    clip-path: inset(30% 0 60% 0);
+  }
+  70% {
+    clip-path: inset(70% 0 15% 0);
+  }
+  80% {
+    clip-path: inset(5% 0 85% 0);
+  }
+  90% {
+    clip-path: inset(55% 0 25% 0);
+  }
+  100% {
+    clip-path: inset(15% 0 75% 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(80% 0 10% 0);
+  }
+  10% {
+    clip-path: inset(10% 0 75% 0);
+  }
+  20% {
+    clip-path: inset(50% 0 35% 0);
+  }
+  30% {
+    clip-path: inset(25% 0 65% 0);
+  }
+  40% {
+    clip-path: inset(70% 0 15% 0);
+  }
+  50% {
+    clip-path: inset(15% 0 80% 0);
+  }
+  60% {
+    clip-path: inset(90% 0 5% 0);
+  }
+  70% {
+    clip-path: inset(35% 0 55% 0);
+  }
+  80% {
+    clip-path: inset(60% 0 25% 0);
+  }
+  90% {
+    clip-path: inset(5% 0 90% 0);
+  }
+  100% {
+    clip-path: inset(45% 0 40% 0);
+  }
+}
+
+/* Animated Green Blobs in Background */
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(120px, -150px, 0) scale(1.2);
+  }
+  66% {
+    transform: translate3d(-100px, 100px, 0) scale(0.8);
+  }
+}
+
+@keyframes blob-float-reverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1.2);
+  }
+  33% {
+    transform: translate3d(-150px, 120px, 0) scale(0.8);
+  }
+  66% {
+    transform: translate3d(120px, -120px, 0) scale(1.1);
+  }
+}
+
+.animate-blob-float {
+  animation: blob-float 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-blob-float-reverse {
+  animation: blob-float-reverse 22s ease-in-out infinite;
+  will-change: transform;
+}

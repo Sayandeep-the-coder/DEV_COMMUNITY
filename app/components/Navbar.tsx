@@ -41,20 +41,20 @@ export default function Navbar() {
           <img 
             src="/logo.jpg" 
             alt="Dev Community KGEC Logo" 
-            className="w-8 h-8 rounded-full border border-white/10 group-hover:rotate-180 transition-transform duration-500"
+            className="w-10 h-10 rounded-full border border-white/10 group-hover:rotate-180 transition-transform duration-500"
           />
           <div className="flex flex-col">
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white">
+            <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white">
               Dev Community
             </span>
-            <span className="text-[9px] uppercase tracking-[0.2em] text-white/40 leading-none">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 leading-none">
               KGEC
             </span>
           </div>
         </Link>
 
         {/* Navigation links */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[10px] uppercase tracking-widest text-white/50">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] lg:text-xs uppercase tracking-widest text-white/50">
           <a 
             href="#about" 
             onClick={scrollToSection}
@@ -97,7 +97,7 @@ export default function Navbar() {
           <a 
             href="#contact"
             onClick={scrollToSection}
-            className="relative px-5 py-2 text-[10px] uppercase tracking-widest text-white hover:text-black font-bold bg-transparent overflow-hidden group border border-emerald-500/30 hover:border-emerald-400 transition-colors duration-300 block w-fit"
+            className="relative px-6 py-2.5 text-[11px] lg:text-xs uppercase tracking-widest text-white hover:text-black font-bold bg-transparent overflow-hidden group border border-emerald-500/30 hover:border-emerald-400 transition-colors duration-300 block w-fit"
           >
             {/* Tech bracket accents for the button */}
             <span className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-emerald-500/40 group-hover:border-black transition-colors duration-300"></span>

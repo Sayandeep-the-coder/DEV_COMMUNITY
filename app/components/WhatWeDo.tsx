@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ScrollStack, { ScrollStackItem } from "./reactbits/ScrollStack";
+import SectionHeading from "./SectionHeading";
 
 export default function WhatWeDo() {
   const [activeDomain, setActiveDomain] = useState(0);
@@ -73,14 +74,7 @@ export default function WhatWeDo() {
         
         {/* SECTION 1: WHAT WE DO */}
         <div className="flex flex-col gap-12">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 03 / Core Initiatives
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              What We Do
-            </h2>
-          </div>
+          <SectionHeading label="// 03 / Core Initiatives" heading="What We Do" />
 
           {/* Stacking Card Animation (ReactBits ScrollStack component) */}
           <ScrollStack 
@@ -140,14 +134,7 @@ export default function WhatWeDo() {
 
         {/* SECTION 2: COMMUNITY DOMAINS */}
         <div id="domains" className="flex flex-col gap-12 pt-12 border-t border-white/[0.03]">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 04 / Technical Domains
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              Ecosystem Domains
-            </h2>
-          </div>
+          <SectionHeading label="// 04 / Technical Domains" heading="Ecosystem Domains" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
             {/* Domain Tabs List */}

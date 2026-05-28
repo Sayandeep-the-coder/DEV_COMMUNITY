@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SectionHeading from "./SectionHeading";
 
 export default function Testimonials() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
@@ -51,7 +52,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="faq" className="relative bg-[#080808] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="faq" className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Background Ambient Blur */}
       <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-emerald-500/[0.015] rounded-full blur-[100px] pointer-events-none"></div>
@@ -60,14 +61,7 @@ export default function Testimonials() {
         
         {/* PART 1: TESTIMONIALS */}
         <div className="flex flex-col gap-12">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 08 / Community Feedback
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              Testimonials
-            </h2>
-          </div>
+          <SectionHeading label="// 08 / Community Feedback" heading="Testimonials" />
 
           {/* Testimonial Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -101,14 +95,7 @@ export default function Testimonials() {
 
         {/* PART 2: FAQ SECTION ACCORDIONS */}
         <div className="flex flex-col gap-12 pt-12 border-t border-white/[0.03]">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 09 / General Queries Resolved
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              FAQ Section
-            </h2>
-          </div>
+          <SectionHeading label="// 09 / General Queries Resolved" heading="FAQ Section" />
 
           {/* FAQ Accordion Module */}
           <div className="flex flex-col gap-4 max-w-3xl">

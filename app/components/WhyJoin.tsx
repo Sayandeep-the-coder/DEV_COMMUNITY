@@ -1,5 +1,7 @@
 "use client";
 
+import SectionHeading from "./SectionHeading";
+
 export default function WhyJoin() {
   const benefits = [
     "Learn directly from peers and senior mentors",
@@ -36,7 +38,7 @@ export default function WhyJoin() {
   ];
 
   return (
-    <section className="relative bg-[#080808] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Glow effects */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-500/[0.015] rounded-full blur-[120px] pointer-events-none"></div>
@@ -46,14 +48,7 @@ export default function WhyJoin() {
           
           {/* Left Column: Why Join Dev Community? (Takes 7 Cols) */}
           <div className="lg:col-span-7 flex flex-col gap-10">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-                // 05 / Active Incentives
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-                Why Join Us?
-              </h2>
-            </div>
+            <SectionHeading label="// 05 / Active Incentives" heading="Why Join Us?" />
 
             <p className="text-sm text-white/50 leading-relaxed max-w-xl">
               Dev Community KGEC is built entirely for developers, designers, CP enthusiast, and builders to cultivate high-tier engineering excellence:
@@ -84,14 +79,7 @@ export default function WhyJoin() {
 
           {/* Right Column: Achievements (Takes 5 Cols) */}
           <div className="lg:col-span-5 flex flex-col gap-10">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-                // 06 / Milestones Completed
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-                Achievements
-              </h2>
-            </div>
+            <SectionHeading label="// 06 / Milestones Completed" heading="Achievements" />
 
             <div className="flex flex-col gap-4">
               {achievements.map((ach, index) => (

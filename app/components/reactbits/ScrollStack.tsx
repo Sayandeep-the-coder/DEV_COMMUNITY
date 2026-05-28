@@ -314,6 +314,18 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     };
 
     if (useWindowScroll) {
+      const globalLenis = (window as any).lenis;
+      if (globalLenis) {
+        globalLenis.on('scroll', handleScroll);
+        const mockLenis = {
+          destroy: () => {
+            globalLenis.off('scroll', handleScroll);
+          }
+        } as any;
+        lenisRef.current = mockLenis;
+        return mockLenis;
+      }
+
       const lenis = new Lenis({
         duration: 1.2,
         easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
