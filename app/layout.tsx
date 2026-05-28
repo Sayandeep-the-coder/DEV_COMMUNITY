@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
+import SectionSnapper from "./components/SectionSnapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,7 +45,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <body className="min-h-screen flex flex-col">
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <SectionSnapper>{children}</SectionSnapper>
+        </SmoothScroll>
       </body>
     </html>
   );

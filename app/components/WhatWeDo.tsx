@@ -68,7 +68,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section id="what-we-do" className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="what-we-do" className="page-section relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-20">
         

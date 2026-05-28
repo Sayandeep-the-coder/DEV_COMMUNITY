@@ -52,7 +52,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="faq" className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="faq" className="page-section relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Background Ambient Blur */}
       <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-emerald-500/[0.015] rounded-full blur-[100px] pointer-events-none"></div>

@@ -43,7 +43,7 @@ export default function Team() {
   ];
 
   return (
-    <section id="team" className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="team" className="page-section relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Background Vignette Ambient */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-emerald-500/[0.01] rounded-full blur-[130px] pointer-events-none"></div>

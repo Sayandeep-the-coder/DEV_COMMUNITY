@@ -252,10 +252,28 @@ body {
   padding: 120px 0;
 }
 
+.page-section {
+  --section-height: 100dvh;
+  height: var(--section-height);
+  min-height: var(--section-height);
+  width: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding: 80px 0;
   }
+
+  .page-section {
+    --section-height: 100svh;
+  }
+}
+
+/* Make the main container snap between sections */
+main {
+  scroll-snap-type: y mandatory;
 }
 
 /* Section heading fixed height — prevents layout shift from typewriter */
