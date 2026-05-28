@@ -292,6 +292,11 @@ body {
 
   .page-section {
     --section-height: 100svh;
+    scroll-snap-align: none;
+  }
+
+  main {
+    scroll-snap-type: none;
   }
 }
 
@@ -329,7 +334,7 @@ main {
 
 @media (max-width: 640px) {
   .section-heading-container {
-    min-height: 56px;
+    min-height: 48px;
   }
 }
 
@@ -527,6 +532,7 @@ main {
 @media (max-width: 768px) {
   .marquee-container { height: 28vh; min-height: 120px; }
   .marquee-item { font-size: clamp(20px, 8vw, 48px); margin-right: 2rem; color: rgba(255,255,255,0.06); }
+  #what-we-do-spacer .marquee-container { padding-top: clamp(40px, 10vh, 100px); }
 }
 
 /* Spacer large faded headline */

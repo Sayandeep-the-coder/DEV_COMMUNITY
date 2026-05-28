@@ -43,12 +43,12 @@ export default function Team() {
   ];
 
   return (
-    <section id="team" className="page-section relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="team" className="page-section relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Background Vignette Ambient */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-emerald-500/[0.01] rounded-full blur-[130px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-10 sm:gap-12 md:gap-16">
         
         {/* Section Header */}
         <div className="flex flex-col gap-4 max-w-2xl">
@@ -59,11 +59,11 @@ export default function Team() {
         </div>
 
         {/* Core Teams Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {teams.map((team, index) => (
             <div 
               key={index}
-              className="group relative p-8 bg-white/[0.01] hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/10 transition-all duration-300 flex flex-col justify-between gap-6"
+              className="group relative p-5 sm:p-8 bg-white/[0.01] hover:bg-white/[0.02] border border-white/[0.03] hover:border-white/10 transition-all duration-300 flex flex-col justify-between gap-5 sm:gap-6"
             >
               {/* Tech Bracket Corners */}
               <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 transition-all duration-300 group-hover:border-emerald-400 group-hover:w-4 group-hover:h-4"></span>
@@ -82,7 +82,7 @@ export default function Team() {
                 </div>
                 
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-base font-bold text-white group-hover:text-white transition-colors">
+                  <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-white transition-colors">
                     {team.name}
                   </h3>
                   <span className="text-[10px] text-white/40 uppercase tracking-widest leading-none font-semibold">
@@ -90,7 +90,7 @@ export default function Team() {
                   </span>
                 </div>
 
-                <p className="text-xs text-white/50 leading-relaxed font-normal mt-2">
+                <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal mt-2">
                   {team.desc}
                 </p>
               </div>

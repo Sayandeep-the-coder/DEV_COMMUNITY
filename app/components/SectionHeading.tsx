@@ -26,14 +26,14 @@ export default function SectionHeading({ label, heading, speed = 100 }: SectionH
   }, [isInView, heading, speed]);
 
   return (
-    <div className="flex flex-col gap-2 section-heading-container" ref={ref}>
+    <div className="flex flex-col gap-2 section-heading-container pl-4 sm:pl-6 md:pl-0" ref={ref}>
       <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
         {label}
       </span>
-      <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white flex items-center">
+      <h2 className="text-xl sm:text-2xl md:text-4xl font-black uppercase tracking-tight text-white flex items-center">
         {displayedText}
         {isInView && displayedText.length < heading.length && (
-          <span className="inline-block w-1.5 h-6 bg-emerald-400 ml-1 animate-pulse align-middle"></span>
+          <span className="inline-block w-1.5 h-5 sm:h-6 bg-emerald-400 ml-1 animate-pulse align-middle"></span>
         )}
       </h2>
     </div>
