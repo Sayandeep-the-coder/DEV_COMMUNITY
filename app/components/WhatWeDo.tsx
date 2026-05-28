@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ScrollStack, { ScrollStackItem } from "./reactbits/ScrollStack";
+import SectionHeading from "./SectionHeading";
 
 export default function WhatWeDo() {
   const [activeDomain, setActiveDomain] = useState(0);
@@ -66,26 +67,24 @@ export default function WhatWeDo() {
     }
   ];
 
+  
+
   return (
-    <section id="what-we-do" className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-20">
         
         {/* SECTION 1: WHAT WE DO */}
         <div className="flex flex-col gap-12">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 03 / Core Initiatives
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              What We Do
-            </h2>
-          </div>
+            <div className="section-heading-sticky">
+              <SectionHeading label="// 03 / Core Initiatives" heading="What We Do" />
+            </div>
 
           {/* Stacking Card Animation (ReactBits ScrollStack component) */}
+          <div className="pt-0 z-0 relative stack-below">
           <ScrollStack 
             useWindowScroll={true} 
-            className="w-full border border-white/[0.02]"
+            className="w-full border border-white/[0.02] z-0"
             itemDistance={60}
             itemScale={0.04}
             itemStackDistance={20}
@@ -137,17 +136,11 @@ export default function WhatWeDo() {
             ))}
           </ScrollStack>
         </div>
+        </div>
 
         {/* SECTION 2: COMMUNITY DOMAINS */}
         <div id="domains" className="flex flex-col gap-12 pt-12 border-t border-white/[0.03]">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 04 / Technical Domains
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              Ecosystem Domains
-            </h2>
-          </div>
+          <SectionHeading label="// 04 / Technical Domains" heading="Ecosystem Domains" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
             {/* Domain Tabs List */}
@@ -222,3 +215,5 @@ export default function WhatWeDo() {
     </section>
   );
 }
+
+/* PlayVideo removed — spacer simplified to marquee + lower-thirds */

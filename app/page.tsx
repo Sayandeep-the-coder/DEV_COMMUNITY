@@ -5,6 +5,7 @@ import WhatWeDo from "./components/WhatWeDo";
 import WhyJoin from "./components/WhyJoin";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -16,8 +17,9 @@ export default function Home() {
         <About />
         <WhatWeDo />
         <WhyJoin />
-        <Team />
-        <Testimonials />
+        {/* <Team /> */}
+        {/*<Testimonials /> {/* (commented out for now since we don't have real testimonials yet, can add back later with real quotes) */}
+        <FAQ />
       </main>
       <Footer />
     </>

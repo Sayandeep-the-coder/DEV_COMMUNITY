@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0e0e0e;
-  --bg-secondary: #161616;
-  --bg-tertiary: #1a1a1a;
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --bg-tertiary: #000000;
   --bg-light: #f4f4f4;
-  --bg-card: #1e1e1e;
+  --bg-card: #000000;
 
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.6);
@@ -25,6 +25,12 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
+}
+
+/* UI layout constants */
+:root {
+  --nav-height: 72px;
+  --section-heading-height: 88px; /* used to offset content below sticky headings */
 }
 
 @theme inline {
@@ -252,8 +258,463 @@ body {
   padding: 120px 0;
 }
 
+.page-section {
+  --section-height: 100dvh;
+  height: var(--section-height);
+  min-height: var(--section-height);
+  width: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Tone down the visible gray divider between sections so it blends with the dark background */
+.page-section {
+  background: var(--bg-primary) !important;
+  border-top-color: rgba(255,255,255,0.01) !important;
+  box-shadow: none !important;
+}
+
+/* Remove explicit top borders added by utility classes to avoid visible separators */
+.page-section {
+  border-top: none !important;
+}
+
+/* Section-specific: allow a section to size to its content (override page-section) */
+.page-section--fit {
+  min-height: 0 !important;
+  height: auto !important;
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding: 80px 0;
   }
+
+  .page-section {
+    --section-height: 100svh;
+  }
 }
+
+/* Make the main container snap between sections */
+main {
+  scroll-snap-type: y mandatory;
+}
+
+/* Section heading fixed height — prevents layout shift from typewriter */
+.section-heading-container {
+  min-height: 72px;
+}
+
+/* Sticky section heading used by content-heavy sections like WhatWeDo */
+
+/* Section heading wrapper: becomes sticky only when the .is-stuck modifier is applied */
+.section-heading-sticky {
+  position: static;
+  display: block;
+  background: transparent;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.section-heading-sticky.is-stuck {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 10;
+}
+
+/* Put the stack/content below a sticky section heading */
+.stack-below {
+  margin-top: 0px; /* no gap between heading and first card */
+}
+
+@media (max-width: 640px) {
+  .section-heading-container {
+    min-height: 56px;
+  }
+}
+
+/* Cyber Glitch Effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch::before {
+  left: 3px;
+  text-shadow: -2px 0 #00fff9;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -3px;
+  text-shadow: -2px 0 #ff00c1, 2px 2px #00ff66;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: inset(20% 0 80% 0);
+  }
+  10% {
+    clip-path: inset(60% 0 10% 0);
+  }
+  20% {
+    clip-path: inset(40% 0 45% 0);
+  }
+  30% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  40% {
+    clip-path: inset(10% 0 70% 0);
+  }
+  50% {
+    clip-path: inset(90% 0 2% 0);
+  }
+  60% {
+    clip-path: inset(30% 0 60% 0);
+  }
+  70% {
+    clip-path: inset(70% 0 15% 0);
+  }
+  80% {
+    clip-path: inset(5% 0 85% 0);
+  }
+  90% {
+    clip-path: inset(55% 0 25% 0);
+  }
+  100% {
+    clip-path: inset(15% 0 75% 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(80% 0 10% 0);
+  }
+  10% {
+    clip-path: inset(10% 0 75% 0);
+  }
+  20% {
+    clip-path: inset(50% 0 35% 0);
+  }
+  30% {
+    clip-path: inset(25% 0 65% 0);
+  }
+  40% {
+    clip-path: inset(70% 0 15% 0);
+  }
+  50% {
+    clip-path: inset(15% 0 80% 0);
+  }
+  60% {
+    clip-path: inset(90% 0 5% 0);
+  }
+  70% {
+    clip-path: inset(35% 0 55% 0);
+  }
+  80% {
+    clip-path: inset(60% 0 25% 0);
+  }
+  90% {
+    clip-path: inset(5% 0 90% 0);
+  }
+  100% {
+    clip-path: inset(45% 0 40% 0);
+  }
+}
+
+/* Animated Green Blobs in Background */
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(120px, -150px, 0) scale(1.2);
+  }
+  66% {
+    transform: translate3d(-100px, 100px, 0) scale(0.8);
+  }
+}
+
+@keyframes blob-float-reverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1.2);
+  }
+  33% {
+    transform: translate3d(-150px, 120px, 0) scale(0.8);
+  }
+  66% {
+    transform: translate3d(120px, -120px, 0) scale(1.1);
+  }
+}
+
+.animate-blob-float {
+  animation: blob-float 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-blob-float-reverse {
+  animation: blob-float-reverse 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Horizontal marquee used in spacer section */
+.marquee-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+/* Shift spacer content down a bit and make marquee full-bleed edge-to-edge */
+#what-we-do-spacer .marquee-container {
+  align-items: flex-start;
+  padding-top: clamp(64px, 12vh, 180px);
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 3.5rem;
+  will-change: transform;
+  animation: marquee 18s linear infinite;
+}
+
+.marquee-item {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  color: rgba(255,255,255,0.08);
+  font-size: clamp(28px, 6vw, 120px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .marquee-container { height: 28vh; min-height: 120px; }
+  .marquee-item { font-size: clamp(20px, 8vw, 48px); margin-right: 2rem; color: rgba(255,255,255,0.06); }
+}
+
+/* Spacer large faded headline */
+.spacer-heading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -48%);
+  font-weight: 900;
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(48px, 12vw, 200px);
+  line-height: 0.9;
+  color: rgba(255,255,255,0.03);
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Play overlay */
+.play-overlay {
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  display: inline-grid;
+  place-items: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+}
+.play-overlay:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0,0,0,0.45); }
+
+/* Video modal */
+.video-modal-backdrop { backdrop-filter: blur(3px); }
+.video-modal > div[role="dialog"] { outline: none; }
+
+@media (max-width: 768px) {
+  .spacer-heading { font-size: clamp(32px, 18vw, 84px); transform: translate(-50%, -52%); }
+  .play-overlay { width: 72px; height: 72px; }
+}
+
+/* Lower third captions for spacer */
+.spacer-lower-thirds {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 4%;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.lower-third {
+  position: static;
+  width: auto;
+  max-width: 40%;
+}
+.lower-third-left { text-align: left; }
+.lower-third-right { text-align: right; }
+
+@media (max-width: 768px) {
+  .spacer-lower-thirds { left: 6%; right: 6%; bottom: 4%; flex-direction: column; align-items: flex-start; }
+  .lower-third { max-width: 80%; }
+  .lower-third-right { display: none; }
+}
+
+/* CRT footer effect: subtle scanlines, vignette, and noise */
+.footer-crt {
+  background-color: #000000;
+  color: #d0d0d0;
+  position: relative;
+}
+.footer-crt::before {
+  /* scanlines */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.00) 0px,
+    rgba(255,255,255,0.005) 1px,
+    rgba(255,255,255,0.00) 2px
+  );
+  opacity: 0.035;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.footer-crt::after {
+  /* vignette + subtle noise */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.004), rgba(255,255,255,0));
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Slight chromatic aberration edge accent */
+.footer-crt .chromatic-edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.02;
+  background-image: linear-gradient(90deg, rgba(255,0,50,0.02), rgba(0,0,0,0) 30%), linear-gradient(90deg, rgba(0,150,255,0.02), rgba(0,0,0,0) 70%);
+}
+
+/* Footer specific typography tweaks */
+.footer-crt h1 { font-family: var(--font-sans, ui-sans-serif, system-ui); }
+.footer-crt p { color: rgba(255,255,255,0.62); }
+
+/* Reduce inner spacing on small screens */
+@media (max-width: 768px) {
+  .footer-crt .max-w-7xl { padding-left: 12px; padding-right: 12px; }
+}
+
+@media (max-width: 1024px) {
+  .footer-crt h1 { font-size: 2.5rem; }
+}
+
+/* Newsletter boxed card (corner brackets) */
+.newsletter-card {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow: visible;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+}
+.newsletter-card .card-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.newsletter-card .card-corner.top-left { top: -8px; left: -8px; border-top: 1px solid rgba(255,255,255,0.06); border-left: 1px solid rgba(255,255,255,0.06); border-top-left-radius: 6px; }
+.newsletter-card .card-corner.top-right { top: -8px; right: -8px; border-top: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); border-top-right-radius: 6px; }
+.newsletter-card .card-corner.bottom-left { bottom: -8px; left: -8px; border-bottom: 1px solid rgba(255,255,255,0.06); border-left: 1px solid rgba(255,255,255,0.06); border-bottom-left-radius: 6px; }
+.newsletter-card .card-corner.bottom-right { bottom: -8px; right: -8px; border-bottom: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); border-bottom-right-radius: 6px; }
+
+@media (max-width: 768px) {
+  .newsletter-card { padding: 0.75rem; }
+  .newsletter-card .card-corner { width: 10px; height: 10px; }
+}
+
+/* Decorative vertical bars (gradient noise columns) behind footer */
+.bass-bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200px;
+  display: flex;
+  gap: 0;
+  z-index: 0;
+  pointer-events: none;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.bass-bars .bar {
+  flex: 1 1 0;
+  height: 100%;
+  background: linear-gradient(to top, rgba(16,185,129,0.95) 0%, rgba(16,185,129,0.42) 55%, rgba(16,185,129,0.18) 78%, rgba(16,185,129,0.0) 100%);
+  opacity: 0.28;
+  box-shadow: inset 0 -80px 180px rgba(0,0,0,0.6);
+  border-left: 1px dotted rgba(255,255,255,0.06);
+}
+.bass-bars .bar:nth-child(odd) { opacity: 0.32; }
+.bass-bars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.02), rgba(255,255,255,0) 60%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .bass-bars { height: 160px; }
+}
+
+/* Edge-push helpers for footer - ensure content sits near viewport edges */
+.footer-crt .pl-12 { padding-left: clamp(16px, 4vw, 96px); }
+.footer-crt .pr-12 { padding-right: clamp(16px, 4vw, 96px); }
+.footer-crt .pl-6 { padding-left: clamp(12px, 2.5vw, 48px); }
+.footer-crt .pr-6 { padding-right: clamp(12px, 2.5vw, 48px); }

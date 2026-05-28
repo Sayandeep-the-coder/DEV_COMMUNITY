@@ -1,5 +1,7 @@
 "use client";
 
+import SectionHeading from "./SectionHeading";
+
 export default function Team() {
   const teams = [
     {
@@ -41,7 +43,7 @@ export default function Team() {
   ];
 
   return (
-    <section id="team" className="relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="team" className="page-section relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Background Vignette Ambient */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-emerald-500/[0.01] rounded-full blur-[130px] pointer-events-none"></div>
@@ -50,14 +52,7 @@ export default function Team() {
         
         {/* Section Header */}
         <div className="flex flex-col gap-4 max-w-2xl">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
-              // 07 / Meet the Builders
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
-              Meet the Team
-            </h2>
-          </div>
+            <SectionHeading label="// 07 / Meet the Builders" heading="Meet the Team" />
           <p className="text-xs text-white/50 leading-relaxed font-normal">
             A passionate group of students working together to build a strong, active, and innovative technical ecosystem inside Kalyani Government Engineering College.
           </p>
