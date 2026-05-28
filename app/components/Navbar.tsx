@@ -36,7 +36,7 @@ export default function Navbar() {
         ? "bg-black/60 backdrop-blur-md border-b border-emerald-500/10 py-4" 
         : "bg-transparent py-6"
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center gap-4 select-none">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex justify-between items-center gap-4 select-none">
         
         {/* Brand Group */}
         <Link href="/" className="flex items-center gap-3 group">
@@ -130,7 +130,7 @@ export default function Navbar() {
 
                   {mobileOpen && (
                     <div className="md:hidden border-t border-emerald-500/10 bg-black/95 backdrop-blur-md">
-                      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-4 uppercase tracking-widest text-[11px] text-white/70">
+                      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex flex-col gap-4 uppercase tracking-widest text-[11px] text-white/70">
                         <a href="#about" onClick={scrollToSection} className="hover:text-white">About</a>
                         <a href="#what-we-do" onClick={scrollToSection} className="hover:text-white">What We Do</a>
                         <a href="#domains" onClick={scrollToSection} className="hover:text-white">Domains</a>

@@ -21,13 +21,13 @@ export default function Footer() {
 
   return (
     <footer className="footer-crt relative min-h-screen flex items-center overflow-hidden font-mono selection:bg-emerald-400 selection:text-black rounded-t-[28px]">
-      <div className="w-full mx-auto px-4 sm:px-6 md:px-8 py-6 pb-16 relative z-10">
+      <div className="w-full mx-auto px-6 sm:px-8 md:px-8 py-6 pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-8">
 
           {/* Left: Large brand block */}
           <div className="w-full lg:w-1/2 flex flex-col gap-5 sm:gap-6 pl-0 sm:pl-2 md:pl-6 lg:pl-12">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-              <img src="/logo.jpg" alt="Dev Community KGEC Logo" className="w-14 h-14 sm:w-20 sm:h-20 rounded-full border border-emerald-500/20" />
+              <img src="/logo.jpg" alt="Dev Community KGEC Logo" className="hidden sm:block w-14 h-14 sm:w-20 sm:h-20 rounded-full border border-emerald-500/20" />
               <div>
                 <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white">DEV COMMUNITY</h1>
                 <div className="text-xs sm:text-sm uppercase tracking-widest text-white/60 mt-1">Kalyani Government Engineering College</div>
@@ -92,7 +92,7 @@ export default function Footer() {
       {/* thin separator above bottom bar */}
       <div className="absolute left-0 right-0 bottom-12 z-40 h-px bg-white/6 pointer-events-none" />
 
-      <div className="footer-bottom absolute left-0 right-0 bottom-0 z-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 px-4 sm:px-6 md:px-8 lg:px-12 pb-4 text-sm text-white/40">
+      <div className="footer-bottom absolute left-0 right-0 bottom-0 z-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 px-6 sm:px-8 md:px-8 lg:px-12 pb-4 text-sm text-white/40">
         <div className="flex items-center gap-2 text-[11px] sm:text-[13px]">
           <span>© {currentYear}</span>
           <img src="/logo.jpg" alt="mini" className="w-4 h-4 rounded-full border border-white/10" />

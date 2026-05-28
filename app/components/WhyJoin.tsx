@@ -22,7 +22,7 @@ export default function WhyJoin() {
       {/* Glow effects */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-500/[0.015] rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-24 items-start">
           
           {/* Left Column: Why Join Dev Community? (now full-width) */}

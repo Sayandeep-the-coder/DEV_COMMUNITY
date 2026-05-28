@@ -72,7 +72,7 @@ export default function WhatWeDo() {
   return (
     <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-14 sm:gap-16 md:gap-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-14 sm:gap-16 md:gap-20">
         
         {/* SECTION 1: WHAT WE DO */}
         <div className="flex flex-col gap-12">
@@ -96,7 +96,7 @@ export default function WhatWeDo() {
             {activities.map((act, index) => (
               <ScrollStackItem 
                 key={index} 
-                itemClassName="bg-zinc-950 p-5 sm:p-8 md:p-10 border border-white/[0.04] rounded-sm group hover:border-white/10"
+                itemClassName="bg-[#030303] p-5 sm:p-8 md:p-10 border border-white/[0.04] rounded-sm group hover:border-white/10"
               >
                 {/* Tech Bracket Corners */}
                 <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t border-l border-white/20 transition-all duration-300 group-hover:border-emerald-400 group-hover:w-4.5 group-hover:h-4.5"></span>

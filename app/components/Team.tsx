@@ -48,7 +48,7 @@ export default function Team() {
       {/* Background Vignette Ambient */}
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-emerald-500/[0.01] rounded-full blur-[130px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-10 sm:gap-12 md:gap-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-10 sm:gap-12 md:gap-16">
         
         {/* Section Header */}
         <div className="flex flex-col gap-4 max-w-2xl">

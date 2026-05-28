@@ -26,7 +26,7 @@ export default function SectionHeading({ label, heading, speed = 100 }: SectionH
   }, [isInView, heading, speed]);
 
   return (
-    <div className="flex flex-col gap-2 section-heading-container" ref={ref}>
+    <div className="flex flex-col gap-2 section-heading-container pl-4 sm:pl-6 md:pl-0" ref={ref}>
       <span className="text-[10px] uppercase tracking-[0.3em] text-emerald-400/50">
         {label}
       </span>

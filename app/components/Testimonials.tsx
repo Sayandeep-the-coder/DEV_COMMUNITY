@@ -24,7 +24,7 @@ export default function Testimonials() {
       {/* Background Ambient Blur */}
       <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-emerald-500/[0.015] rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-10 sm:gap-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-10 sm:gap-12">
         <div className="flex flex-col gap-12">
           <SectionHeading label="// 08 / Community Feedback" heading="Testimonials" />
 

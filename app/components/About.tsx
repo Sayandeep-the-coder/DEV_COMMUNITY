@@ -65,7 +65,7 @@ export default function About() {
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full py-10 sm:py-16 md:py-20" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 w-full py-10 sm:py-16 md:py-20" ref={sectionRef}>
         <div className="flex flex-col gap-12">
           
           {/* Header */}

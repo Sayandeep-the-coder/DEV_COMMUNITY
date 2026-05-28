@@ -35,7 +35,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="page-section page-section--fit relative bg-[#000000] py-16 sm:py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col gap-8 sm:gap-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-8 sm:gap-12">
         <div className="flex flex-col gap-8 sm:gap-12 pt-10 sm:pt-12 border-t border-white/[0.03]">
           <SectionHeading label="// 09 / General Queries Resolved" heading="FAQ Section" />
 
