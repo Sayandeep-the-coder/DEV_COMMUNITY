@@ -92,13 +92,12 @@ export default function Footer() {
       {/* thin separator above bottom bar */}
       <div className="absolute left-0 right-0 bottom-12 z-40 h-px bg-white/6 pointer-events-none" />
 
-      <div className="footer-bottom absolute left-0 right-0 bottom-0 z-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 px-6 sm:px-8 md:px-8 lg:px-12 pb-4 text-sm text-white/40">
+      <div className="footer-bottom absolute left-0 right-0 bottom-0 z-50 flex items-center justify-start px-6 sm:px-8 md:px-8 lg:px-12 pb-4 text-sm text-white/40">
         <div className="flex items-center gap-2 text-[11px] sm:text-[13px]">
           <span>© {currentYear}</span>
           <img src="/logo.jpg" alt="mini" className="w-4 h-4 rounded-full border border-white/10" />
           <span className="font-semibold tracking-wider">DEV COMMUNITY KGEC</span>
         </div>
-        <Link href="/privacy" className="hover:text-white text-[11px] sm:text-sm">Privacy Policy</Link>
       </div>
     </footer>
   );
