@@ -342,7 +342,7 @@ export default function Hero() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="lower-third absolute bottom-12 left-10 right-10 hidden md:flex justify-between items-end pointer-events-none z-30 font-mono text-left w-[calc(100%-5rem)]"
+              className="hero-lower-third absolute bottom-12 left-10 right-10 hidden md:flex justify-between items-end pointer-events-none z-30 font-mono text-left w-[calc(100%-5rem)]"
             >
               {/* Bottom Left */}
               <div className="flex flex-col gap-1.5 max-w-md">

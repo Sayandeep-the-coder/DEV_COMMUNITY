@@ -67,19 +67,24 @@ export default function WhatWeDo() {
     }
   ];
 
+  
+
   return (
-    <section id="what-we-do" className="page-section relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-20">
         
         {/* SECTION 1: WHAT WE DO */}
         <div className="flex flex-col gap-12">
-          <SectionHeading label="// 03 / Core Initiatives" heading="What We Do" />
+            <div className="section-heading-sticky">
+              <SectionHeading label="// 03 / Core Initiatives" heading="What We Do" />
+            </div>
 
           {/* Stacking Card Animation (ReactBits ScrollStack component) */}
+          <div className="pt-0 z-0 relative stack-below">
           <ScrollStack 
             useWindowScroll={true} 
-            className="w-full border border-white/[0.02]"
+            className="w-full border border-white/[0.02] z-0"
             itemDistance={60}
             itemScale={0.04}
             itemStackDistance={20}
@@ -130,6 +135,7 @@ export default function WhatWeDo() {
               </ScrollStackItem>
             ))}
           </ScrollStack>
+        </div>
         </div>
 
         {/* SECTION 2: COMMUNITY DOMAINS */}
@@ -209,3 +215,5 @@ export default function WhatWeDo() {
     </section>
   );
 }
+
+/* PlayVideo removed — spacer simplified to marquee + lower-thirds */
