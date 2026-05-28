@@ -243,9 +243,6 @@ export default function Navbar() {
             <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white">
               Dev Community
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 leading-none">
-              KGEC
-            </span>
           </div>
         </Link>
 
