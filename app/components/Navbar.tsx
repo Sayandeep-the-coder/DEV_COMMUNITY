@@ -73,11 +73,13 @@ export default function Navbar() {
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
+        const id = `#${entry.target.id}`;
         if (entry.isIntersecting) {
-          const id = `#${entry.target.id}`;
           if (sections.includes(id)) {
             setActiveLink(id);
           }
+        } else {
+          setActiveLink((prev) => (prev === id ? null : prev));
         }
       });
     };
@@ -97,20 +99,38 @@ export default function Navbar() {
     if (!href) return;
     const target = document.querySelector(href);
     
+    // Set global flag to prevent Hero scroll trigger hijacking
+    if (typeof window !== "undefined") {
+      (window as any).isNavClickScrolling = true;
+    }
+
+    const performScroll = () => {
+      if (target) {
+        const lenis = (window as any).lenis;
+        if (lenis && typeof lenis.scrollTo === "function") {
+          lenis.scrollTo(target);
+        } else {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+      // Reset the flag after the scroll completes (approx 1500ms)
+      setTimeout(() => {
+        if (typeof window !== "undefined") {
+          (window as any).isNavClickScrolling = false;
+        }
+      }, 1500);
+    };
+
     if (mobileOpen) {
       setClickedLink(href);
       setTimeout(() => {
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        performScroll();
         setMobileOpen(false);
         setClickedLink(null);
       }, 500);
     } else {
       setActiveLink(href);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      performScroll();
     }
   };
 

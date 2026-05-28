@@ -225,6 +225,7 @@ export default function Hero() {
         scrub: 0.5,
         onUpdate: (self) => {
           if (isAutoScrolling) return;
+          if (typeof window !== "undefined" && (window as any).isNavClickScrolling) return;
 
           const p = self.progress;
           const dir = self.direction; // 1 = down, -1 = up
