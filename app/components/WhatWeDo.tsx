@@ -118,7 +118,7 @@ export default function WhatWeDo() {
                     <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white group-hover:text-white/95 transition-colors">
                       {act.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs md:text-sm text-white/50 leading-relaxed font-normal max-w-2xl">
+                    <p className="text-[11px] sm:text-xs md:text-sm text-white/50 leading-relaxed font-normal">
                       {act.desc}
                     </p>
                   </div>
@@ -189,7 +189,7 @@ export default function WhatWeDo() {
                   <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
                     {domains[activeDomain].name}
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal max-w-xl">
+                  <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal">
                     {domains[activeDomain].desc}
                   </p>
                 </div>

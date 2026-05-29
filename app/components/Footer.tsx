@@ -20,8 +20,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer-crt relative min-h-screen flex items-center overflow-hidden font-mono selection:bg-emerald-400 selection:text-black rounded-t-[28px]">
-      <div className="w-full mx-auto px-6 sm:px-8 md:px-8 py-6 pb-16 relative z-10">
+    <footer className="footer-crt relative min-h-fit md:min-h-screen flex items-center overflow-hidden font-mono selection:bg-emerald-400 selection:text-black rounded-t-[28px]">
+      <div className="w-full mx-auto px-6 sm:px-8 md:px-8 pt-24 pb-20 sm:py-12 md:py-16 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-8">
 
           {/* Left: Large brand block */}

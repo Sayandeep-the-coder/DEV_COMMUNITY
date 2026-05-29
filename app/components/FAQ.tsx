@@ -48,7 +48,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" aria-label="Frequently Asked Questions" className="page-section page-section--fit relative bg-[#000000] py-16 sm:py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="faq" aria-label="Frequently Asked Questions" className="page-section page-section--fit relative bg-[#000000] pt-24 pb-16 sm:py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       {/* FAQ Structured Data */}
       <script
         type="application/ld+json"
