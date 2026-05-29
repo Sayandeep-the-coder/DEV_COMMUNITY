@@ -70,7 +70,7 @@ export default function WhatWeDo() {
   
 
   return (
-    <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="what-we-do" aria-label="What Dev Community KGEC Does" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-14 sm:gap-16 md:gap-20">
         

@@ -329,7 +329,7 @@ export default function Hero() {
   }, [loading, images, isMobile]);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[350vh] bg-black">
+    <div ref={containerRef} aria-label="Hero – Welcome to Dev Community KGEC" className="relative w-full h-[350vh] bg-black">
 
       {/* 1. Loader screen (Pre-caching states) */}
       {loading && (

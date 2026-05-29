@@ -247,7 +247,7 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation links */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] lg:text-xs uppercase tracking-widest text-white/50">
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] lg:text-xs uppercase tracking-widest text-white/50">
           {renderDesktopLink("#about", "About")}
           {renderDesktopLink("#what-we-do", "What We Do")}
           {renderDesktopLink("#domains", "Domains")}
@@ -304,7 +304,7 @@ export default function Navbar() {
             exit="exit"
             className="fixed inset-0 w-screen h-screen bg-[#030303] border-b border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.8)] z-40 md:hidden flex flex-col justify-center items-start font-mono select-none"
           >
-            <div className="w-full px-8 sm:px-12 flex flex-col items-start gap-4 uppercase tracking-[0.25em] text-sm text-white/70">
+            <nav aria-label="Mobile navigation" className="w-full px-8 sm:px-12 flex flex-col items-start gap-4 uppercase tracking-[0.25em] text-sm text-white/70">
               {renderMobileLink("#about", "About")}
               <motion.hr variants={linkVariants} className="w-full border-white/10" />
               {renderMobileLink("#what-we-do", "What We Do")}
@@ -314,7 +314,7 @@ export default function Navbar() {
               {renderMobileLink("#team", "Team")}
               <motion.hr variants={linkVariants} className="w-full border-white/10" />
               {renderMobileLink("#faq", "FAQ")}
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

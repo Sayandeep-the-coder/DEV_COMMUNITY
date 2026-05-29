@@ -59,7 +59,7 @@ export default function About() {
   const combinedText = `${paragraph1}\n\n${paragraph2}\n\n${paragraph3}`;
 
   return (
-    <section id="about" className="page-section page-section--fit relative bg-[#000000] min-h-screen flex items-center border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="about" aria-label="About Dev Community KGEC" className="page-section page-section--fit relative bg-[#000000] min-h-screen flex items-center border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-emerald-500/[0.02] rounded-full blur-[100px] pointer-events-none"></div>

@@ -17,7 +17,7 @@ export default function WhyJoin() {
   
 
   return (
-    <section className="page-section relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section aria-label="Why Join Dev Community KGEC" className="page-section relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       {/* Glow effects */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-500/[0.015] rounded-full blur-[120px] pointer-events-none"></div>
