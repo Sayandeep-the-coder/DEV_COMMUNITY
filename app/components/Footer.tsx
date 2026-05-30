@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               <img src="/logo.jpg" alt="Dev Community KGEC Logo" className="hidden sm:block w-14 h-14 sm:w-20 sm:h-20 rounded-full border border-emerald-500/20" />
               <div>
-                <p className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white">DEV COMMUNITY</p>
+                <p className="brand-title text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white">DEV COMMUNITY</p>
                 <div className="text-xs sm:text-sm uppercase tracking-widest text-white/60 mt-1">Kalyani Government Engineering College</div>
               </div>
             </div>

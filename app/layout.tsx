@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
-import SectionSnapper from "./components/SectionSnapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -160,7 +159,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <SmoothScroll>
-          <SectionSnapper>{children}</SectionSnapper>
+          {children}
         </SmoothScroll>
       </body>
     </html>

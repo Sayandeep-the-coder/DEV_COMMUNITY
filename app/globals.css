@@ -606,7 +606,7 @@ main {
 /* CRT footer effect: subtle scanlines, vignette, and noise */
 .footer-crt {
   background-color: #000000;
-  color: #d0d0d0;
+  color: #ffffff;
   position: relative;
 }
 .footer-crt::before {
@@ -647,7 +647,7 @@ main {
 
 /* Footer specific typography tweaks */
 .footer-crt h1 { font-family: var(--font-sans, ui-sans-serif, system-ui); }
-.footer-crt p { color: rgba(255,255,255,0.62); }
+.footer-crt p:not(.brand-title) { color: rgba(255,255,255,0.62); }
 
 /* Reduce inner spacing on small screens */
 @media (max-width: 768px) {
