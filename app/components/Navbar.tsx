@@ -237,7 +237,7 @@ export default function Navbar() {
           <img 
             src="/logo.jpg" 
             alt="Dev Community KGEC Logo" 
-            className="w-10 h-10 rounded-full border border-white/10 group-hover:rotate-180 transition-transform duration-500"
+            className="w-10 h-10 rounded-full border border-white/10"
           />
           <div className="flex flex-col">
             <span className="text-sm sm:text-base font-bold uppercase tracking-widest text-white">
@@ -258,8 +258,7 @@ export default function Navbar() {
         {/* Action Button */}
         <div className="flex items-center gap-3">
           <a 
-            href="#contact"
-            onClick={scrollToSection}
+            href="/apply"
             className="relative px-4 sm:px-6 py-2.5 text-[10px] sm:text-[11px] lg:text-xs uppercase tracking-widest text-white hover:text-black font-bold bg-transparent overflow-hidden group border border-emerald-500/30 hover:border-emerald-400 transition-colors duration-300 block w-fit"
           >
             {/* Tech bracket accents for the button */}

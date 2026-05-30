@@ -562,8 +562,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="hidden md:flex flex-wrap justify-center gap-4 mt-4 pointer-events-auto">
               <a
-                href="#contact"
-                onClick={scrollToSectionInHero}
+                href="/apply"
                 className="px-8 py-3.5 bg-emerald-500 text-black hover:bg-emerald-400 font-bold uppercase tracking-[0.2em] text-xs sm:text-sm rounded-sm transition-all duration-300 shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:scale-105 block"
               >
                 Join Community

@@ -52,7 +52,12 @@ export default function Footer() {
               <p className="mt-3 text-[10px] sm:text-[12px] text-white/50">Be part of a dynamic space where coding thrives, innovations take flight, and knowledge knows no bounds.</p>
 
               <div className="mt-5 flex items-center gap-3">
-                <Link href="/join" className="inline-flex items-center gap-3 bg-emerald-500 text-black font-semibold px-4 py-2 rounded-md shadow-sm hover:opacity-95 w-full sm:w-auto justify-center">Join Now</Link>
+                <Link 
+                  href="/apply" 
+                  className="inline-flex items-center gap-3 bg-emerald-500 text-black font-semibold px-4 py-2 rounded-md shadow-sm hover:opacity-95 w-full sm:w-auto justify-center"
+                >
+                  Join Now
+                </Link>
               </div>
             </div>
 
