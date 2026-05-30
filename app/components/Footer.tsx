@@ -65,7 +65,8 @@ export default function Footer() {
               <div>
                 <div className="uppercase tracking-widest text-white/40 mb-3">Social</div>
                 <div className="flex flex-col gap-2">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
+                  <a href="https://www.linkedin.com/company/dc-kgec?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
+                  <a href="https://www.instagram.com/dc_kgec/" target="_blank" rel="noopener noreferrer" className="hover:text-white">Instagram</a>
                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">Twitter</a>
                 </div>
               </div>

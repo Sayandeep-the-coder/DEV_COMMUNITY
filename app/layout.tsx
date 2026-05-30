@@ -124,7 +124,8 @@ const jsonLd = {
   description: SITE_DESCRIPTION,
   foundingDate: "2024",
   sameAs: [
-    "https://linkedin.com/company/devcommunitykgec",
+    "https://www.linkedin.com/company/dc-kgec?originalSubdomain=in",
+    "https://www.instagram.com/dc_kgec/",
     "https://twitter.com/devcommunitykgec",
     "https://github.com/devcommunitykgec",
   ],
