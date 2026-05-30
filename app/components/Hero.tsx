@@ -71,7 +71,7 @@ export default function Hero() {
 
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [images, setImages] = useState<ImageBitmap[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   // Detect mobile viewport on mount
@@ -92,16 +92,20 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Preload all frames inside useEffect to keep it clean and SSR-safe
+  // Preload all frames at reduced resolution to prevent browser memory crashes.
+  // Original 1920×1080 RGBA frames × 113 = ~894 MB decoded. Halving to 960×540 = ~224 MB.
   useEffect(() => {
     if (isMobile === null) return;
 
     let active = true;
     let loadedCount = 0;
-    const loadedImages: HTMLImageElement[] = [];
     const framesCount = isMobile ? 267 : 113;
+    const loadedBitmaps: ImageBitmap[] = new Array(framesCount);
 
-    // Formatter to pad frame index, e.g., 003 or 074
+    // Target decode resolution (half of native to save GPU memory)
+    const decodeWidth = isMobile ? 270 : 960;
+    const decodeHeight = isMobile ? 480 : 540;
+
     const formatIndex = (index: number) => {
       return String(index).padStart(3, "0");
     };
@@ -109,54 +113,76 @@ export default function Hero() {
     setLoading(true);
     setProgress(0);
 
-    // Failsafe timeout: if assets take too long to load (e.g. over LAN/Wi-Fi), proceed anyway
+    // Failsafe timeout: if assets take too long, proceed with whatever we have
     const failsafeTimeout = setTimeout(() => {
       if (active) {
         console.warn("Preloading timed out. Forcing load completion.");
-        setImages(loadedImages);
+        setImages(loadedBitmaps.filter(Boolean));
         setLoading(false);
       }
-    }, 8000);
+    }, 12000);
 
-    for (let i = 0; i < framesCount; i++) {
-      const img = new Image();
+    const loadFrame = async (i: number) => {
+      if (!active) return;
       const frameNum = isMobile ? i + 1 : i;
       const path = isMobile
         ? `/hands_mobile/frame_${formatIndex(frameNum)}.webp?v=1`
         : `/hands/new_${formatIndex(frameNum)}.webp?v=1`;
 
-      // Set handlers BEFORE assigning .src to avoid race conditions with cached images
-      img.onload = () => {
+      try {
+        const resp = await fetch(path);
+        const blob = await resp.blob();
         if (!active) return;
-        loadedCount++;
-        setProgress(Math.round((loadedCount / framesCount) * 100));
 
-        if (loadedCount === framesCount) {
-          clearTimeout(failsafeTimeout);
-          setImages(loadedImages);
+        // Decode at reduced resolution — this is the key memory optimization
+        const bitmap = await createImageBitmap(blob, {
+          resizeWidth: decodeWidth,
+          resizeHeight: decodeHeight,
+          resizeQuality: "medium",
+        });
+        if (!active) {
+          bitmap.close();
+          return;
+        }
+        loadedBitmaps[i] = bitmap;
+      } catch {
+        // Skip failed frames
+      }
+
+      loadedCount++;
+      setProgress(Math.round((loadedCount / framesCount) * 100));
+
+      if (loadedCount === framesCount) {
+        clearTimeout(failsafeTimeout);
+        if (active) {
+          setImages(loadedBitmaps.filter(Boolean));
           setLoading(false);
         }
-      };
+      }
+    };
 
-      img.onerror = () => {
+    // Load in batches of 10 to avoid overwhelming the browser
+    const BATCH_SIZE = 10;
+    const loadAllFrames = async () => {
+      for (let start = 0; start < framesCount; start += BATCH_SIZE) {
         if (!active) return;
-        loadedCount++;
-        setProgress(Math.round((loadedCount / framesCount) * 100));
-
-        if (loadedCount === framesCount) {
-          clearTimeout(failsafeTimeout);
-          setImages(loadedImages);
-          setLoading(false);
+        const batch = [];
+        for (let j = start; j < Math.min(start + BATCH_SIZE, framesCount); j++) {
+          batch.push(loadFrame(j));
         }
-      };
+        await Promise.all(batch);
+      }
+    };
 
-      img.src = path;
-      loadedImages.push(img);
-    }
+    loadAllFrames();
 
     return () => {
       active = false;
       clearTimeout(failsafeTimeout);
+      // Release bitmaps to free GPU memory immediately on cleanup
+      loadedBitmaps.forEach((bmp) => {
+        if (bmp && typeof bmp.close === "function") bmp.close();
+      });
     };
   }, [isMobile]);
 
@@ -193,7 +219,12 @@ export default function Hero() {
       const y = (canvasHeight - newHeight) / 2 + yOffset;
 
       ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-      ctx.drawImage(img, x, y, newWidth, newHeight);
+      try {
+        ctx.drawImage(img, x, y, newWidth, newHeight);
+      } catch (e) {
+        // Fallback for closed/invalid ImageBitmaps during transitions/resizes
+        console.debug("Failed to draw image frame:", e);
+      }
     };
 
     // Fit canvas resolution to actual device size
@@ -329,7 +360,7 @@ export default function Hero() {
   }, [loading, images, isMobile]);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[350vh] bg-black">
+    <div ref={containerRef} aria-label="Hero – Welcome to Dev Community KGEC" className="relative w-full h-[350vh] bg-black">
 
       {/* 1. Loader screen (Pre-caching states) */}
       {loading && (

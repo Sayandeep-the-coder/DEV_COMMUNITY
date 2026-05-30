@@ -20,8 +20,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer-crt relative min-h-screen flex items-center overflow-hidden font-mono selection:bg-emerald-400 selection:text-black rounded-t-[28px]">
-      <div className="w-full mx-auto px-6 sm:px-8 md:px-8 py-6 pb-16 relative z-10">
+    <footer className="footer-crt relative min-h-fit md:min-h-screen flex items-center overflow-hidden font-mono selection:bg-emerald-400 selection:text-black rounded-t-[28px]">
+      <div className="w-full mx-auto px-6 sm:px-8 md:px-8 pt-24 pb-20 sm:py-12 md:py-16 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-8">
 
           {/* Left: Large brand block */}
@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               <img src="/logo.jpg" alt="Dev Community KGEC Logo" className="hidden sm:block w-14 h-14 sm:w-20 sm:h-20 rounded-full border border-emerald-500/20" />
               <div>
-                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white">DEV COMMUNITY</h1>
+                <p className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight text-white">DEV COMMUNITY</p>
                 <div className="text-xs sm:text-sm uppercase tracking-widest text-white/60 mt-1">Kalyani Government Engineering College</div>
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Right: Newsletter and links */}
           <div className="w-full lg:w-1/2 flex flex-col items-start lg:items-end gap-6 sm:gap-8 pr-0 sm:pr-2 md:pr-6 lg:pr-12">
-            <div className="newsletter-card w-full lg:w-[420px] group relative px-4 sm:px-6 py-4 sm:py-6 bg-white/[0.01] transition-all duration-300 hover:bg-white/[0.02]">
+            <div aria-label="Join Dev Community KGEC" className="newsletter-card w-full lg:w-[420px] group relative px-4 sm:px-6 py-4 sm:py-6 bg-white/[0.01] transition-all duration-300 hover:bg-white/[0.02]">
               {/* corner bracket accents */}
               <span className="card-corner top-left" aria-hidden />
               <span className="card-corner top-right" aria-hidden />
@@ -60,8 +60,8 @@ export default function Footer() {
               <div>
                 <div className="uppercase tracking-widest text-white/40 mb-3">Social</div>
                 <div className="flex flex-col gap-2">
-                  <a href="https://linkedin.com" className="hover:text-white">LinkedIn</a>
-                  <a href="https://twitter.com" className="hover:text-white">Twitter</a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">Twitter</a>
                 </div>
               </div>
 

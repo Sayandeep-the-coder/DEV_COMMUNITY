@@ -33,8 +33,27 @@ export default function FAQ() {
     }
   };
 
+  // JSON-LD FAQPage structured data for rich search results
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
-    <section id="faq" className="page-section page-section--fit relative bg-[#000000] py-16 sm:py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="faq" aria-label="Frequently Asked Questions" className="page-section page-section--fit relative bg-[#000000] pt-24 pb-16 sm:py-20 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-8 sm:gap-12">
         <div className="flex flex-col gap-8 sm:gap-12 pt-10 sm:pt-12 border-t border-white/[0.03]">
           <SectionHeading label="// 09 / General Queries Resolved" heading="FAQ Section" />
@@ -54,6 +73,8 @@ export default function FAQ() {
 
                 <button
                   onClick={() => toggleFAQ(index)}
+                  aria-expanded={expandedFAQ === index}
+                  aria-controls={`faq-answer-${index}`}
                   className="w-full text-left p-4 sm:p-6 font-bold uppercase tracking-widest text-[10px] sm:text-xs text-white flex justify-between items-center cursor-pointer select-none"
                 >
                   <span className="max-w-[85%]">{faq.q}</span>
@@ -64,6 +85,9 @@ export default function FAQ() {
 
                 {/* Animated expandable content block */}
                 <div 
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
                     expandedFAQ === index 
                       ? "max-h-40 border-t border-white/[0.04]" 

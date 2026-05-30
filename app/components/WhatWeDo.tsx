@@ -70,7 +70,7 @@ export default function WhatWeDo() {
   
 
   return (
-    <section id="what-we-do" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
+    <section id="what-we-do" aria-label="What Dev Community KGEC Does" className="page-section page-section--fit mt-12 md:mt-20 relative bg-[#000000] py-20 sm:py-24 md:py-32 border-t border-white/[0.04] overflow-hidden font-mono text-white select-none">
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex flex-col gap-14 sm:gap-16 md:gap-20">
         
@@ -118,7 +118,7 @@ export default function WhatWeDo() {
                     <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white group-hover:text-white/95 transition-colors">
                       {act.title}
                     </h3>
-                    <p className="text-[11px] sm:text-xs md:text-sm text-white/50 leading-relaxed font-normal max-w-2xl">
+                    <p className="text-[11px] sm:text-xs md:text-sm text-white/50 leading-relaxed font-normal">
                       {act.desc}
                     </p>
                   </div>
@@ -189,7 +189,7 @@ export default function WhatWeDo() {
                   <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-white">
                     {domains[activeDomain].name}
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal max-w-xl">
+                  <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed font-normal">
                     {domains[activeDomain].desc}
                   </p>
                 </div>

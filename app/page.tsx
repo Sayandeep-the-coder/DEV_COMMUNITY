@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content" role="main" aria-label="Dev Community KGEC - Main Content">
         <Hero />
         <About />
         <WhatWeDo />
@@ -25,3 +25,4 @@ export default function Home() {
     </>
   );
 }
+
