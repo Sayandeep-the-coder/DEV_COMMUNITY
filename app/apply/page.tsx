@@ -14,9 +14,6 @@ export default function ApplyPage() {
       <main className="relative mx-auto flex min-h-screen max-w-6xl items-center px-6 py-20 sm:px-8 lg:px-12">
         <div className="grid w-full gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
           <section className="flex flex-col justify-center gap-6">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-400/20 bg-white/[0.03] px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-emerald-300/90 backdrop-blur-sm">
-              Applications paused
-            </div>
 
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40">Dev Community KGEC</p>
