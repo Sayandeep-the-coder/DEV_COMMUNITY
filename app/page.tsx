@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import WhatWeDo from "./components/WhatWeDo";
 import WhyJoin from "./components/WhyJoin";
+import Events from "./components/Events";
 import Team from "./components/Team";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
@@ -17,6 +18,7 @@ export default function Home() {
         <About />
         <WhatWeDo />
         <WhyJoin />
+        <Events />
         {/* <Team /> */}
         {/*<Testimonials /> {/* (commented out for now since we don't have real testimonials yet, can add back later with real quotes) */}
         <FAQ />

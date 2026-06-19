@@ -3,6 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+interface ScrollTriggerInstance {
+  progress: number;
+  direction: number;
+  start: number;
+  end: number;
+  kill: () => void;
+}
 import { motion, AnimatePresence } from "framer-motion";
 
 const containerVariants = {
@@ -110,8 +118,12 @@ export default function Hero() {
       return String(index).padStart(3, "0");
     };
 
-    setLoading(true);
-    setProgress(0);
+    const resetTimer = setTimeout(() => {
+      if (active) {
+        setLoading(true);
+        setProgress(0);
+      }
+    }, 0);
 
     // Failsafe timeout: if assets take too long, proceed with whatever we have
     const failsafeTimeout = setTimeout(() => {
@@ -179,6 +191,7 @@ export default function Hero() {
     return () => {
       active = false;
       clearTimeout(failsafeTimeout);
+      clearTimeout(resetTimer);
       // Release bitmaps to free GPU memory immediately on cleanup
       loadedBitmaps.forEach((bmp) => {
         if (bmp && typeof bmp.close === "function") bmp.close();
@@ -254,9 +267,9 @@ export default function Hero() {
         start: "top top",
         end: "bottom bottom",
         scrub: 0.5,
-        onUpdate: (self) => {
+        onUpdate: (self: ScrollTriggerInstance) => {
           if (isAutoScrolling) return;
-          if (typeof window !== "undefined" && (window as any).isNavClickScrolling) return;
+          if (typeof window !== "undefined" && (window as Window & { isNavClickScrolling?: boolean }).isNavClickScrolling) return;
 
           const p = self.progress;
           const dir = self.direction; // 1 = down, -1 = up
@@ -355,7 +368,7 @@ export default function Hero() {
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger: ScrollTriggerInstance) => trigger.kill());
     };
   }, [loading, images, isMobile]);
 
