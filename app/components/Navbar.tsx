@@ -64,7 +64,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = ["#about", "#what-we-do", "#domains", "#team", "#faq"];
+    const sections = ["#about", "#what-we-do", "#domains", "#events", "#team", "#faq"];
     const observerOptions = {
       root: null,
       rootMargin: "-20% 0px -60% 0px",
@@ -251,6 +251,7 @@ export default function Navbar() {
           {renderDesktopLink("#about", "About")}
           {renderDesktopLink("#what-we-do", "What We Do")}
           {renderDesktopLink("#domains", "Domains")}
+          {renderDesktopLink("#events", "Events")}
           {renderDesktopLink("#team", "Team")}
           {renderDesktopLink("#faq", "FAQ")}
         </nav>
@@ -309,6 +310,8 @@ export default function Navbar() {
               {renderMobileLink("#what-we-do", "What We Do")}
               <motion.hr variants={linkVariants} className="w-full border-white/10" />
               {renderMobileLink("#domains", "Domains")}
+              <motion.hr variants={linkVariants} className="w-full border-white/10" />
+              {renderMobileLink("#events", "Events")}
               <motion.hr variants={linkVariants} className="w-full border-white/10" />
               {renderMobileLink("#team", "Team")}
               <motion.hr variants={linkVariants} className="w-full border-white/10" />
